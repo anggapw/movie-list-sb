@@ -1,7 +1,6 @@
-import { useEffect } from 'react'
-import { Layout } from 'antd'
-import { useDispatch, useSelector } from 'react-redux'
-import { getMovieList } from '../redux/movies/actions'
+import { useState } from 'react'
+import { Layout, Alert, Spin } from 'antd'
+import { useSelector } from 'react-redux'
 
 import SearchBar from '../components/SearchBar'
 import MovieCard from '../components/MovieCard'
@@ -9,20 +8,25 @@ import MovieCard from '../components/MovieCard'
 const { Content } = Layout
 
 const SearchPage = () => {
-	const dispatch = useDispatch()
-	const movieList = useSelector((state) => state)
+	const [searchValue, setSearchvalue] = useState('')
+	const movieList = useSelector((state) => state.movieList)
 
-	useEffect(() => {
-		console.log(movieList)
-	})
-
-	const handleSearch = (title) => {
-		dispatch(getMovieList(title))
+	const valueSearch = (value) => {
+		setSearchvalue(value)
 	}
+
 	return (
 		<Content style={{ margin: '50px 50px' }}>
-			<SearchBar handleSearch={handleSearch} />
-			<MovieCard />
+			<SearchBar valueSearch={valueSearch} />
+			<Spin tip="Loading..." spinning={movieList.movieListLoader}>
+				{movieList?.movieList?.length === 0 || movieList === undefined || searchValue === '' ? (
+					<div></div>
+				) : movieList.movieList.data.Error === 'Movie not found!' ? (
+					<Alert message={movieList.movieList.data.Error} type="error" />
+				) : (
+					<MovieCard movies={movieList} />
+				)}
+			</Spin>
 		</Content>
 	)
 }

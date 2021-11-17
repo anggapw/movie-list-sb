@@ -1,11 +1,10 @@
-import { Layout } from 'antd'
 import SearchPage from './containers/SearchPage'
 
 const App = () => {
 	return (
-		<Layout style={{ height: '100vh' }}>
+		<div>
 			<SearchPage />
-		</Layout>
+		</div>
 	)
 }
 

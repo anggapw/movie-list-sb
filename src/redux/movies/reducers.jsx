@@ -1,8 +1,10 @@
 import { actions } from './actions'
 
 const initialState = {
-	movieListloader: false,
-	movieList: []
+	movieListLoader: false,
+	movieList: [],
+	movieDetailLoader: false,
+	movieDetail: {}
 }
 
 const moviesReducers = (state = initialState, action) => {
@@ -10,13 +12,25 @@ const moviesReducers = (state = initialState, action) => {
 		case actions.GET_MOVIE_LIST:
 			return {
 				...state,
-				movieListloader: true
+				movieListLoader: true
 			}
 		case actions.MOVIE_LIST:
 			return {
 				...state,
-				movieListloader: false,
+				movieListLoader: false,
 				movieList: action.payload
+			}
+
+		case actions.GET_MOVIE_DETAIL:
+			return {
+				...state,
+				movieDetailLoader: false
+			}
+		case actions.MOVIE_DETAIL:
+			return {
+				...state,
+				movieListLoader: false,
+				movieDetail: action.payload
 			}
 
 		default:
