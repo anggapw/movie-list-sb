@@ -19,7 +19,6 @@ const MovieCard = (props) => {
 		setIsModalVisible(false)
 	}
 
-	console.log(props.movies, 'props movies')
 	return (
 		<div>
 			<Row justify="space-around">
@@ -40,7 +39,7 @@ const MovieCard = (props) => {
 
 				<Modal
 					visible={isModalVisible}
-					title={props.movies.movieDetail.data.Title !== undefined ? props.movies.movieDetail.data.Title : ''}
+					title={props.movies.movieDetail.data !== undefined ? props.movies.movieDetail.data.Title : ''}
 					onCancel={handleCancel}
 					footer={null}
 				>
