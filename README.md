@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Change `.env.example` to `.env` and open in your code editor
+Fill `REACT_APP_OMDB_API_KEY` with your OMDB API KEY
+
 ### `yarn start`
 
 Runs the app in the development mode.\
