@@ -13,7 +13,7 @@ export const getMovieList = (title) => {
 			dispatch({ type: actions.GET_MOVIE_LIST })
 
 			const response = await axios.get(
-				`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${title}`
+				`https://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${title}`
 			)
 
 			dispatch({ type: actions.MOVIE_LIST, payload: response })
@@ -29,7 +29,7 @@ export const getMovieDetail = (id) => {
 			dispatch({ type: actions.GET_MOVIE_DETAIL })
 
 			const response = await axios.get(
-				`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&i=${id}`
+				`https://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&i=${id}`
 			)
 
 			dispatch({ type: actions.MOVIE_DETAIL, payload: response })
