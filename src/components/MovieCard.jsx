@@ -59,32 +59,28 @@ const MovieCard = (props) => {
 							))}
 						<Col>
 							<h4 style={{ textAlign: 'justify' }}>
-								{props.movies.movieDetail.data.Plot !== undefined
-									? props.movies.movieDetail.data.Plot
-									: ''}
+								{props.movies.movieDetail.data !== undefined ? props.movies.movieDetail.data.Plot : ''}
 							</h4>
 							<br />
 							<h4>
 								Actors:{' '}
-								{props.movies.movieDetail.data.Actors !== undefined
+								{props.movies.movieDetail.data !== undefined
 									? props.movies.movieDetail.data.Actors
 									: ''}
 							</h4>
 							<h4>
 								Director:{' '}
-								{props.movies.movieDetail.data.Director !== undefined
+								{props.movies.movieDetail.data !== undefined
 									? props.movies.movieDetail.data.Director
 									: ''}
 							</h4>
 							<h4>
 								Rating:{' '}
-								{props.movies.movieDetail.data.Rated !== undefined
-									? props.movies.movieDetail.data.Rated
-									: ''}
+								{props.movies.movieDetail.data !== undefined ? props.movies.movieDetail.data.Rated : ''}
 							</h4>
 							<h4>
 								Raelease Date:{' '}
-								{props.movies.movieDetail.data.Released !== undefined
+								{props.movies.movieDetail.data !== undefined
 									? props.movies.movieDetail.data.Released
 									: ''}
 							</h4>
